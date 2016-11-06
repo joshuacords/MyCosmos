@@ -1,0 +1,15 @@
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\CosmosOperatingSystem.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\CosmosOperatingSystem.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Debug.Kernel.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.System.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Common.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.HAL.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Core.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.System.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Debug.Kernel.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Common.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.HAL.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\bin\Debug\Cosmos.Core.pdb
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\obj\x86\Debug\CosmosOperatingSystem.csprojResolveAssemblyReference.cache
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\obj\x86\Debug\CosmosOperatingSystem.dll
+D:\MyCosmos\CosmosOperatingSystem\CosmosOperatingSystem\obj\x86\Debug\CosmosOperatingSystem.pdb

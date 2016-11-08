@@ -42,9 +42,13 @@
   <ItemGroup>
     <Compile Include="BaseComponent.cs" />
     <Compile Include="CoreComponent.cs" />
+    <Compile Include="FileManagerComponent.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="Kernel.cs" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="MathComponent.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="VariableStorage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

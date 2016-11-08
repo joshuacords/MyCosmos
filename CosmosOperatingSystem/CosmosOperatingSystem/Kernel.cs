@@ -10,38 +10,26 @@ namespace CosmosOperatingSystem
         protected override void BeforeRun()
         {
             Console.WriteLine("Cosmos booted. Adding components...");
-            _components = new List<CoreComponent>();
+            _components = new List<IComponent>();
+            _reservedWords = new List<string>();
+
             _components.Add(new CoreComponent());
+            _components.Add(new FileManagerComponent());
+            MathComponent math = MathComponent.getInstance();
+            _components.Add(math);
+
+            foreach (IComponent component in _components)
+            {
+                foreach (string word in component.getCommands())
+                {
+                    _reservedWords.Add(word);
+                }
+            }
+
+            math.setReservedWords(_reservedWords);
+
             Console.WriteLine("Components ready. Booting complete.");
         }
-
-        //protected override void Run()
-        //{
-        //    Console.Write("Ready: ");
-        //    string input = Console.ReadLine();
-
-        //    char[] delimiterChars = { ' ', ',', '\n' };
-
-        //    string[] cmd = input.Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
-
-        //    switch (cmd[0])
-        //    {
-        //        case "echo": echo(cmd);
-        //            break;
-        //        default: Console.WriteLine("No such command " + cmd[0]);
-        //            break;
-        //    }
-        //}
-
-        //private void echo(string[] cmd)
-        //{
-        //    Console.Write("\'");
-        //    for(int i = 1; i < cmd.Length; i++)
-        //    {
-        //        Console.Write(cmd[i] + " ");
-        //    }
-        //    Console.WriteLine("\'");
-        //}
 
         protected override void Run()
         {
@@ -54,15 +42,13 @@ namespace CosmosOperatingSystem
                 input = Console.ReadLine();
             }
 
-            char[] delimiterChars = { ' ', ',', '\n' };
-
             string[] array = input.Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
             string cmd = array[0];
             string[] args = getArgs(array);
 
             string result = null;
            
-            foreach(CoreComponent component in _components){
+            foreach(IComponent component in _components){
                 result = component.executeIfContains(cmd, args);
                 if (result != null)
                 {
@@ -90,6 +76,7 @@ namespace CosmosOperatingSystem
             return args;
         }
         
-        private List<CoreComponent> _components;
+        private List<IComponent> _components;
+        private List<string> _reservedWords;
     }
 }

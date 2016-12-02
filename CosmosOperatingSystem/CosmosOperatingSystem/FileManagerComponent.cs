@@ -66,6 +66,33 @@ namespace CosmosOperatingSystem
             }
         }
 
+        public string getDataString()
+        {
+
+            List<string> output = new List<string>();
+            int size = 0;
+            foreach (string arg in _data)
+            {
+                size += arg.Length + 1;
+                output.Add(arg + "\n");
+            }
+
+            char[] charArray = new char[size - 1];
+            int i = 0;
+
+            foreach (string word in output)
+            {
+                foreach (char letter in word)
+                {
+                    charArray[i++] = letter;
+                }
+            }
+
+            string outputString = new string(charArray);
+
+            return outputString;
+        }
+
     }
 
 
@@ -110,7 +137,12 @@ namespace CosmosOperatingSystem
                     output = create(args);
                     break;
                 case "view":
-                    output = getFile(args).ToString();
+                    File file = getFile(args);
+                    output = "";
+                    if (file != null)
+                    {
+                        output = file.getDataString();
+                    }
                     break;
                 default:
                     output = null;
@@ -181,14 +213,15 @@ namespace CosmosOperatingSystem
 
         public File getFile(string[] fileName)
         {
+            File f = null;
             foreach(File file in _files)
             {
-                if(_utilities.equalString(file.getFileName(), fileName[0])){
-                    return file;
+                string fullFileName = file.getFileName() + "." + file.getExt();
+                if (_utilities.equalString(fullFileName, fileName[0])){
+                    f = file;
                 }
             }
-
-            return null;
+            return f;
         }
 
 

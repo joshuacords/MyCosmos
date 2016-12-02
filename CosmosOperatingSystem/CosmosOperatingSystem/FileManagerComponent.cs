@@ -71,6 +71,18 @@ namespace CosmosOperatingSystem
 
     class FileManagerComponent : IComponent
     {
+        private static FileManagerComponent _instance;
+
+        public static FileManagerComponent getInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new FileManagerComponent();
+            }
+
+            return _instance;
+        }
+
         public FileManagerComponent()
         {
             _utilities = Utilities.getInstance();
@@ -78,6 +90,7 @@ namespace CosmosOperatingSystem
             _files = new List<File>();
             _cmds.Add("dir");
             _cmds.Add("create");
+            _cmds.Add("view");
         }
 
         public bool contains(string cmd)
@@ -95,6 +108,9 @@ namespace CosmosOperatingSystem
                     break;
                 case "create":
                     output = create(args);
+                    break;
+                case "view":
+                    output = getFile(args).ToString();
                     break;
                 default:
                     output = null;
@@ -161,6 +177,18 @@ namespace CosmosOperatingSystem
         private void displayFile(File file)
         {
             Console.WriteLine(file.getFileName() + "." + file.getExt() + "\tsize: " + file.getSize());
+        }
+
+        public File getFile(string[] fileName)
+        {
+            foreach(File file in _files)
+            {
+                if(_utilities.equalString(file.getFileName(), fileName[0])){
+                    return file;
+                }
+            }
+
+            return null;
         }
 
 

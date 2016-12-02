@@ -15,6 +15,7 @@ namespace CosmosOperatingSystem
 
             _components.Add(new CoreComponent());
             _components.Add(new FileManagerComponent());
+            _components.Add(new BatchComponent());
             MathComponent math = MathComponent.getInstance();
             _components.Add(math);
 
@@ -59,7 +60,26 @@ namespace CosmosOperatingSystem
 
         }
 
-        private string[] getArgs(string[] array)
+        public static void runInternal(string input)
+        {
+            string[] array = input.Split((string[])null, StringSplitOptions.RemoveEmptyEntries);
+            string cmd = array[0];
+            string[] args = getArgs(array);
+
+            string result = null;
+
+            foreach (IComponent component in _components)
+            {
+                result = component.executeIfContains(cmd, args);
+                if (result != null)
+                {
+                    Console.WriteLine(result);
+                    break;
+                }
+            }
+        }
+
+        private static string[] getArgs(string[] array)
         {
             if(array.Length == 1)
             {
@@ -76,7 +96,7 @@ namespace CosmosOperatingSystem
             return args;
         }
         
-        private List<IComponent> _components;
+        private static List<IComponent> _components;
         private List<string> _reservedWords;
     }
 }

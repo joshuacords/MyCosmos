@@ -31,6 +31,11 @@ namespace CosmosOperatingSystem
             return _fileName;
         }
 
+        public string getFullFileName()
+        {
+            return _fileName + "." + _ext;
+        }
+
         public int getSize()
         {
             return _size;
@@ -110,7 +115,7 @@ namespace CosmosOperatingSystem
             return _instance;
         }
 
-        public FileManagerComponent()
+        private FileManagerComponent()
         {
             _utilities = Utilities.getInstance();
             _cmds = new List<string>();
@@ -141,7 +146,7 @@ namespace CosmosOperatingSystem
                     output = "";
                     if (file != null)
                     {
-                        output = file.getDataString();
+                         output = file.getDataString();
                     }
                     break;
                 default:
@@ -214,10 +219,15 @@ namespace CosmosOperatingSystem
         public File getFile(string[] fileName)
         {
             File f = null;
+           // String test = dir(fileName);
+           // Console.WriteLine("Dir: " + test);
+
             foreach(File file in _files)
             {
-                string fullFileName = file.getFileName() + "." + file.getExt();
+                string fullFileName = file.getFullFileName();
+                //Console.WriteLine("FullFileName: " + file.getFullFileName());
                 if (_utilities.equalString(fullFileName, fileName[0])){
+                    //Console.WriteLine("Found file that matches.");
                     f = file;
                 }
             }

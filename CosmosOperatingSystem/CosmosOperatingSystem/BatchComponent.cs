@@ -12,7 +12,7 @@ namespace CosmosOperatingSystem
         {
             _utilities = Utilities.getInstance();
             _cmds = new List<string>();
-            _cmds.Add("RUN");
+            _cmds.Add("run");
         }
 
         public bool contains(string cmd)
@@ -25,7 +25,9 @@ namespace CosmosOperatingSystem
             string output = null;
             switch (cmd)
             {
-                case "RUN":
+                case "run":
+                    //Console.WriteLine("Going to Run: " + args[0]);
+                    //Console.WriteLine(args[1]);
                     output = run(args);
                     break;
                 default:
@@ -43,8 +45,12 @@ namespace CosmosOperatingSystem
 
         private string run(string[] args)
         {
+
             int numTimes = _utilities.parseInt(args[0]);
             string fileName = args[1];
+            //Console.WriteLine("numTimes: " + numTimes);
+            //Console.WriteLine("filename: " + fileName);
+
             BatchInvoker batch = new BatchInvoker(fileName, numTimes);
 
             while(batch.hasNext())

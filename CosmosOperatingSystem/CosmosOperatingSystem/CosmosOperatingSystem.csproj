@@ -41,11 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseComponent.cs" />
+    <Compile Include="BatchComponent.cs" />
+    <Compile Include="BatchInvoker.cs" />
     <Compile Include="CoreComponent.cs" />
     <Compile Include="FileManagerComponent.cs" />
     <Compile Include="IComponent.cs" />
     <Compile Include="Kernel.cs" />
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="KernelMain.cs" />
     <Compile Include="MathComponent.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="VariableStorage.cs" />
